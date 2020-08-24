@@ -3740,3 +3740,55 @@ Processing by ArticlesController#show as HTML
 Completed 200 OK in 34ms (Views: 31.5ms | ActiveRecord: 0.2ms)
 
 
+Started PATCH "/articles/8" for ::1 at 2020-08-24 23:37:00 +0300
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/peshy/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/activerecord-5.2.4.3/lib/active_record/log_subscriber.rb:98
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"HxqhMDnFKgxCndfWgczJq8OesKsiWP7PAMC7objexRk1Hxxi5KmSbrvNv1a4OuhF1oOQKxPx7oT+ZP2ERgzjCw==", "article"=>{"title"=>"i have edited this article", "body"=>"I have been updated"}, "commit"=>"Update Article", "id"=>"8"}
+  [1m[36mArticle Load (0.2ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:34
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/articles_controller.rb:35
+  [1m[36mArticle Update (0.7ms)[0m  [1m[33mUPDATE "articles" SET "title" = ?, "body" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["title", "i have edited this article"], ["body", "I have been updated"], ["updated_at", "2020-08-24 20:37:00.178763"], ["id", 8]]
+  ↳ app/controllers/articles_controller.rb:35
+  [1m[35m (76.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/articles_controller.rb:35
+Redirected to http://localhost:3000/articles/8
+Completed 302 Found in 118ms (ActiveRecord: 77.8ms)
+
+
+Started GET "/articles/8" for ::1 at 2020-08-24 23:37:00 +0300
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:8
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 415ms (Views: 411.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2020-08-24 23:37:04 +0300
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /home/peshy/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-5.2.4.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /home/peshy/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-5.2.4.3/lib/rails/templates/rails/welcome/index.html.erb (2.9ms)
+Completed 200 OK in 9ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for ::1 at 2020-08-24 23:37:12 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.3ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (2.2ms)
+Completed 200 OK in 28ms (Views: 25.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/" for ::1 at 2020-08-24 23:37:33 +0300
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  ↳ app/views/articles/index.html.erb:4
+  Rendered articles/index.html.erb within layouts/application (19.6ms)
+Completed 200 OK in 52ms (Views: 45.5ms | ActiveRecord: 2.2ms)
+
+
